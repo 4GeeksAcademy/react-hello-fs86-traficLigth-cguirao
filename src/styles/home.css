@@ -6,36 +6,10 @@
     text-align: center;
    
 }
-.semaforo{
-    margin-top: 3rem;
-    width: 200px;
-    height: 100%;
+.traficLigth{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     gap: 5rem;
-   background-color: darkslategrey;
-   border: 10px solid black;
-}
-
-
-.luz{
-    width: 100px;
-    height: 100px;
-    padding-top: 3rem;
-    background-color: white;
-    border-radius: 50%;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-}
-.verde{
-    margin-bottom: 3rem;
-    background-color: green;
-}
-.amarillo{
-    background-color: yellow;
-}
-.rojo{
-    
-    background-color: red;
 }

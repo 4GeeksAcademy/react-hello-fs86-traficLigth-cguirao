@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/home.css";
+import Semaforo from '../component/Semaforo.jsx';
 
 const Home = () => {
-  const colors = ["Rojo", "Amarillo", "Verde"];
-  const [currentColor, setCurrentColor] = useState(colors[0]);
+	const [extraColors, setExtraColors] = useState([]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentColor((prevColor) => {
-        const nextIndex = (colors.indexOf(prevColor) + 1) % colors.length;
-        return colors[nextIndex];
-      });
-    }, 2000);
+	const nuevoColor = () => {
+        if (extraColors.length < 1) setExtraColors((prevColors) => [...prevColors, "Purpura"])
+    };
+	
+	return (
+		<div className='traficLigth'>
+			<Semaforo extraColors={extraColors} />
+			<div>
+				<button onClick={nuevoColor} >Pulsar Aquí!!</button>
+			</div>
 
-    // Limpiar el intervalo al desmontar el componente
-    return () => clearInterval(interval);
-  }, []); // [] asegura que el efecto se ejecute solo una vez al montar
-
-  return (
-    <div className="semaforo">
-      <div className={`luz ${currentColor === "Rojo" ? "rojo" : ""}`}></div>
-      <div className={`luz ${currentColor === "Amarillo" ? "amarillo" : ""}`}></div>
-      <div className={`luz ${currentColor === "Verde" ? "verde" : ""}`}></div>
-    </div>
-  );
+		</div>
+	);
 };
 
 export default Home;
